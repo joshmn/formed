@@ -6,3 +6,6 @@ coverage:
     patch:
       default:
         informational: true
+ignore:
+  - "lib/formed/associations"  # ignore folders and all its contents
+  - "lib/formed/reflection.rb"
