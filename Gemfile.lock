@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    formed (0.1)
+    formed (1.0.0)
       rails (>= 5.2)
 
 GEM
