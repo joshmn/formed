@@ -9,7 +9,7 @@ end
 require "pry"
 require "rails/all"
 
-require "active_form"
+require "formed"
 
 Dir["spec/fixtures/**/*.rb"].each { |f| require File.expand_path(f) }
 require "action_controller/metal/strong_parameters"
