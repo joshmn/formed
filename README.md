@@ -9,9 +9,6 @@
     <a href="https://codeclimate.com/github/joshmn/formed/maintainability">
         <img src="https://api.codeclimate.com/v1/badges/9c075416ce74985d5c6c/maintainability" alt="Maintainability"/>
     </a>
-     <a href="https://inch-ci.org/github/joshmn/formed">
-        <img src="https://inch-ci.org/github/joshmn/formed.svg?branch=master" alt="Docs"/>
-    </a>
 </div>
 
 
