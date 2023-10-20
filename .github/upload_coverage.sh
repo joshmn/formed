@@ -7,7 +7,7 @@ SHA=`jq -r ".pull_request.head.sha // .check_run.head_sha // .after" $EVENT_PAYL
 
 if [ $PRID = "null" ]
 then
-  bash <(curl -s https://codecov.io/bash) -n "Caffeinate" -C $SHA
+  bash <(curl -s https://codecov.io/bash) -n "Formed" -C $SHA
 else
-  bash <(curl -s https://codecov.io/bash) -n "Caffeinate" -C $SHA -P $PRID
+  bash <(curl -s https://codecov.io/bash) -n "Formed" -C $SHA -P $PRID
 fi
