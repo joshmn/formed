@@ -10,9 +10,9 @@ Gem::Specification.new do |spec|
   spec.homepage    = "https://github.com/joshmn/formed"
   spec.summary     = "A form object that really wants to be a form object."
   spec.description = spec.summary
-  spec.license     = "MIT"
+  spec.license     = "LGPL-3.0"
 
-  spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  spec.files = Dir["{lib}/**/*", "LICENSE.txt", "Rakefile", "README.md", "CHANGELOG.md"]
 
   spec.add_dependency "rails", ">= 5.2"
 

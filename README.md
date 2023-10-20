@@ -1,9 +1,9 @@
 <div align="center">
-  <img width="450" src="https://github.com/joshmn/caffeinate/raw/master/logo.png" alt="Caffeinate logo" />
+  <img width="450" src="https://github.com/joshmn/formed/raw/master/logo.png" alt="Formed logo" />
 </div>
 
 <div align="center">
-    <a href="https://codecov.io/gh/joshmn/caffeinate">
+    <a href="https://codecov.io/gh/joshmn/formed">
         <img src="https://codecov.io/gh/joshmn/formed/branch/master/graph/badge.svg?token=5LCOB4ESHL" alt="Coverage"/>
     </a>
     <a href="https://codeclimate.com/github/joshmn/formed/maintainability">
