@@ -1,3 +1,20 @@
+<div align="center">
+  <img width="450" src="https://github.com/joshmn/caffeinate/raw/master/logo.png" alt="Caffeinate logo" />
+</div>
+
+<div align="center">
+    <a href="https://codecov.io/gh/joshmn/caffeinate">
+        <img src="https://codecov.io/gh/joshmn/formed/branch/master/graph/badge.svg?token=5LCOB4ESHL" alt="Coverage"/>
+    </a>
+    <a href="https://codeclimate.com/github/joshmn/formed/maintainability">
+        <img src="https://api.codeclimate.com/v1/badges/9c075416ce74985d5c6c/maintainability" alt="Maintainability"/>
+    </a>
+     <a href="https://inch-ci.org/github/joshmn/formed">
+        <img src="https://inch-ci.org/github/joshmn/formed.svg?branch=master" alt="Docs"/>
+    </a>
+</div>
+
+
 # Formed
 
 Formed is the form object pattern you never knew you needed: uses ActiveModel under the hood, and supports associations just like ActiveRecord.

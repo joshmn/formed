@@ -1,4 +1,10 @@
 # frozen_string_literal: true
+if ENV['CI'] == 'true'
+  require 'simplecov'
+  SimpleCov.start
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 require "pry"
 require "rails/all"
@@ -7,8 +13,6 @@ require "active_form"
 
 Dir["spec/fixtures/**/*.rb"].each { |f| require File.expand_path(f) }
 require "action_controller/metal/strong_parameters"
-
-database = "development.sqlite3"
 
 ActiveRecord::Base.establish_connection(adapter: "sqlite3", database: ":memory:")
 ActiveRecord::Base.logger = Logger.new($stdout)

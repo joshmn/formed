@@ -8,5 +8,4 @@ require "active_model"
 require_relative "formed/version"
 require "formed/base"
 
-module Formed
-  ; end
+module Formed; end
