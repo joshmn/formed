@@ -497,23 +497,10 @@ module Formed
 
       private
 
-      def find_nth_with_limit(index, limit)
-        load_target if find_from_target?
-        super
-      end
-
-      def find_nth_from_last(index)
-        load_target if find_from_target?
-        super
-      end
-
       def find_from_target?
         @association.find_from_target?
       end
 
-      def exec_queries
-        load_target
-      end
     end
   end
 end

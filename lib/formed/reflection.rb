@@ -22,10 +22,6 @@ module Formed
         ar._reflections = ar._reflections.except(name).merge!(name => reflection)
       end
 
-      def add_aggregate_reflection(ar, name, reflection)
-        ar.aggregate_reflections = ar.aggregate_reflections.merge(-name.to_s => reflection)
-      end
-
       private
 
       def reflection_class_for(macro)
@@ -186,10 +182,6 @@ module Formed
         raise InverseOfAssociationRecursiveError, self if has_inverse? && inverse_of == self
       end
 
-      def alias_candidate(name)
-        "#{plural_name}_#{name}"
-      end
-
       def chain
         collect_join_chain
       end
@@ -200,23 +192,6 @@ module Formed
           table: table,
           predicate_builder: predicate_builder
         )
-      end
-
-      def strict_loading?
-        options[:strict_loading]
-      end
-
-      def strict_loading_violation_message(owner)
-        message = +"`#{owner}` is marked for strict_loading."
-        message << " The #{polymorphic? ? "polymorphic association" : "#{klass} association"}"
-        message << " named `:#{name}` cannot be lazily loaded."
-      end
-
-      protected
-
-      # FIXME: this is a horrible name
-      def actual_source_reflection
-        self
       end
 
       private
@@ -308,15 +283,6 @@ module Formed
 
       def derive_class_name
         "#{name.to_s.camelize}Form"
-      end
-    end
-
-    # Holds all the metadata about an aggregation as it was specified in the
-    # Active Record class.
-    class AggregateReflection < MacroReflection # :nodoc:
-      def mapping
-        mapping = options[:mapping] || [name, name]
-        mapping.first.is_a?(Array) ? mapping : [mapping]
       end
     end
 

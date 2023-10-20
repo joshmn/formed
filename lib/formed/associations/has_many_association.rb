@@ -6,7 +6,6 @@ module Formed
       include ForeignAssociation
 
       def insert_record(record, validate = true, raise = false)
-        set_owner_attributes(record)
         super
       end
 

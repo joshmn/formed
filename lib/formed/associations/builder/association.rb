@@ -104,12 +104,9 @@ module Formed
           raise NotImplementedError
         end
 
-        def self.check_dependent_options(dependent, model)
-        end
-
         private_class_method :build_scope, :macro, :valid_options, :validate_options, :define_extensions,
                              :define_callbacks, :define_accessors, :define_readers, :define_writers, :define_validations,
-                             :define_change_tracking_methods, :valid_dependent_options, :check_dependent_options
+                             :define_change_tracking_methods, :valid_dependent_options
       end
     end
   end

@@ -28,8 +28,6 @@ require "formed/from_model"
 require "formed/from_params"
 
 module Formed
-  RESTRICTED_CLASS_METHODS = %w(private public protected allocate new name parent superclass)
-
   class FormedError < StandardError
   end
 

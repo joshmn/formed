@@ -19,10 +19,6 @@ module Formed
       association
     end
 
-    def association_cached?(name) # :nodoc:
-      @association_cache.key?(name)
-    end
-
     def initialize_dup(*) # :nodoc:
       @association_cache = {}
       super

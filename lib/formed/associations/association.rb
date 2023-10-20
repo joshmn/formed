@@ -23,10 +23,6 @@ module Formed
         @stale_state = nil
       end
 
-      def reset_negative_cache # :nodoc:
-        reset if loaded? && target.nil?
-      end
-
       # Reloads the \target and returns +self+ on success.
       # The QueryCache is cleared if +force+ is true.
       def reload(force = false)
@@ -90,20 +86,6 @@ module Formed
         target
       end
 
-      # We can't dump @reflection and @through_reflection since it contains the scope proc
-      def marshal_dump
-        ivars = (instance_variables - %i[@reflection @through_reflection]).map do |name|
-          [name, instance_variable_get(name)]
-        end
-        [@reflection.name, ivars]
-      end
-
-      def marshal_load(data)
-        reflection_name, ivars = data
-        ivars.each { |name, val| instance_variable_set(name, val) }
-        @reflection = @owner.class._reflect_on_association(reflection_name)
-      end
-
       def initialize_attributes(record, except_from_scope_attributes = nil) # :nodoc:
         except_from_scope_attributes ||= {}
         skip_assign = [reflection.foreign_key, reflection.type].compact
@@ -123,21 +105,11 @@ module Formed
       end
 
       def find_target
-
-      end
-
-      def violates_strict_loading?
-        return reflection.strict_loading? if reflection.options.key?(:strict_loading)
-
-        false # owner.strict_loading? && !owner.strict_loading_n_plus_one_only?
+        # no-op
       end
 
       def association_scope
         klass
-      end
-
-      def target_scope
-        AssociationRelation.create(klass, self).merge!({})
       end
 
       def find_target?
@@ -173,11 +145,6 @@ module Formed
           initialize_attributes(record, attributes)
           yield(record) if block_given?
         end
-      end
-
-      def inversable?(record)
-        record &&
-          ((!record.persisted? || !owner.persisted?) || matches_foreign_key?(record))
       end
 
       def matches_foreign_key?(record)

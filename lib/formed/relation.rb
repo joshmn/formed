@@ -64,33 +64,21 @@ module Formed
 
     # Returns size of the records.
     def size
-      if loaded?
-        records.length
-      else
-        count(:all)
-      end
+      records.length
     end
 
     # Returns true if there are no records.
     def empty?
-      if loaded?
-        records.empty?
-      else
-        !exists?
-      end
+      records.empty?
     end
 
     # Returns true if there are no records.
     def none?
-      return super if block_given?
-
       empty?
     end
 
     # Returns true if there are any records.
     def any?
-      return super if block_given?
-
       !empty?
     end
 
@@ -99,7 +87,7 @@ module Formed
       return super if block_given?
       return records.one? if loaded?
 
-      limited_count == 1
+      length == 1
     end
 
     # Returns true if there is more than one record.
@@ -107,7 +95,7 @@ module Formed
       return super if block_given?
       return records.many? if loaded?
 
-      limited_count > 1
+      length > 1
     end
   end
 end

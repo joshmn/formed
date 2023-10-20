@@ -142,14 +142,8 @@ module Formed
       def scope
       end
 
-      def null_scope?
-        owner.new_record?
-      end
-
       def find_from_target?
         loaded? ||
-          owner.strict_loading? ||
-          reflection.strict_loading? ||
           owner.new_record? ||
           target.any? { |record| record.new_record? || record.changed? }
       end
@@ -274,21 +268,6 @@ module Formed
           end || target.include?(record)
         else
           target.include?(record)
-        end
-      end
-
-      # If the :inverse_of option has been
-      # specified, then #find scans the entire collection.
-      def find_by_scan(*args)
-        expects_array = args.first.is_a?(Array)
-        ids           = args.flatten.compact.map(&:to_s).uniq
-
-        if ids.size == 1
-          id = ids.first
-          record = load_target.detect { |r| id == r.id.to_s }
-          expects_array ? [record] : record
-        else
-          load_target.select { |r| ids.include?(r.id.to_s) }
         end
       end
     end

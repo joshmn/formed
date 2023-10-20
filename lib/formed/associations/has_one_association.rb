@@ -19,9 +19,6 @@ module Formed
         replace(record, false)
       end
 
-      def nullify_owner_attributes(_record)
-        nil
-      end
     end
   end
 end
