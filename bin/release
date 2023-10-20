@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+VERSION=$1
+
+printf "module Formed\n  VERSION = \"$VERSION\"\nend\n" > ./lib/formed/version.rb
+bundle
+git add Gemfile.lock lib/formed/version.rb
+git commit -m "Bump version for $VERSION"
+git push
+git tag v$VERSION
+git push origin --tags
+gem build formed.gemspec
+gem push "formed-$VERSION.gem" --host https://rubygems.org
+rm "formed-$VERSION.gem"

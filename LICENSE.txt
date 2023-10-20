@@ -1,0 +1,9 @@
+Copyright (c) JoshMN Gems LLC
+
+Formed is an Open Source project licensed under the terms of
+the LGPLv3 license.  Please see <http://www.gnu.org/licenses/lgpl-3.0.html>
+for license text.
+
+Formed-Pro has a commercial-friendly license.
+You can find the commercial license at https://joshmn.gemfile.net/license.
+Please see https://joshmn.gemfile.net/gem/formed-pro for purchasing options.
